@@ -15,4 +15,12 @@ class RequestSpec extends ObjectBehavior
         $this->getVerb()->shouldBe('GET');
         $this->getUri()->shouldBe('/api/v1/profiles');
     }
+
+    function it_can_have_headers()
+    {
+        $this->beConstructedWith('GET', '/api/v1/profiles');
+        $this->setHeader('Content-Type', 'application/json');
+
+        $this->getHeaders()->shouldBe(array('Content-Type' => 'application/json'));
+    }
 }
