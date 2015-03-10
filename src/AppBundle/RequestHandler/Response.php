@@ -7,6 +7,7 @@ class Response
 {
     private $statusCode;
     private $headers = array();
+    private $body;
 
     public function __construct($statusCode)
     {
@@ -26,5 +27,15 @@ class Response
     public function getHeader($name)
     {
         return (isset($this->headers[$name]) ? $this->headers[$name] : null);
+    }
+
+    public function setBody($body)
+    {
+        $this->body = $body;
+    }
+
+    public function getBody()
+    {
+        return $this->body;
     }
 }

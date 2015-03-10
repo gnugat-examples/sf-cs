@@ -22,4 +22,12 @@ class ResponseSpec extends ObjectBehavior
 
         $this->getHeader('Content-Type')->shouldBe('application/json');
     }
+
+    function it_can_have_a_body()
+    {
+        $this->beConstructedWith(200);
+        $this->setBody('{"wound":"just a flesh one"}');
+
+        $this->getBody()->shouldBe('{"wound":"just a flesh one"}');
+    }
 }
