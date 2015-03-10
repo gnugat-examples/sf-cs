@@ -14,4 +14,12 @@ class ResponseSpec extends ObjectBehavior
 
         $this->getStatusCode()->shouldBe(204);
     }
+
+    function it_can_have_headers()
+    {
+        $this->beConstructedWith(204);
+        $this->setHeaders(array('Content-Type' => 'application/json'));
+
+        $this->getHeader('Content-Type')->shouldBe('application/json');
+    }
 }
