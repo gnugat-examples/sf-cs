@@ -1,5 +1,5 @@
 <?php
-// File: spec/AppBundle/RequestHandler/Request.php
+// File: spec/AppBundle/RequestHandler/RequestSpec.php
 
 namespace spec\AppBundle\RequestHandler;
 
