@@ -23,4 +23,12 @@ class RequestSpec extends ObjectBehavior
 
         $this->getHeaders()->shouldBe(array('Content-Type' => 'application/json'));
     }
+
+    function it_can_have_a_body()
+    {
+        $this->beConstructedWith('GET', '/api/v1/profiles');
+        $this->setBody('{"wound":"just a flesh one"}');
+
+        $this->getBody()->shouldBe('{"wound":"just a flesh one"}');
+    }
 }
