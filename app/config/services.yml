@@ -1,9 +1,8 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
-parameters:
-#    parameter_name: value
+# File: app/config/services.yml
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.request_handler:
+        alias: app.event_request_handler
+
+    guzzle.client:
+        class: GuzzleHttp\Client
