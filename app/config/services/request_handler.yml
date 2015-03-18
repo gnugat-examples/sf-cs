@@ -1,0 +1,23 @@
+#file: app/config/services/request_handler.yml
+services:
+    guzzle.client:
+        class: GuzzleHttp\Client
+
+    app.guzzle_request_handler:
+        class: AppBundle\RequestHandler\Middleware\GuzzleRequestHandler
+        arguments:
+            - "@guzzle.client"
+
+    app.event_request_handler:
+        class: AppBundle\RequestHandler\Middleware\EventRequestHandler
+        arguments:
+            - "@event_dispatcher"
+            - "@app.guzzle_request_handler"
+
+    app.request_handler:
+        alias: app.event_request_handler
+
+    app.request_handler.json_response_listener:
+        class: AppBundle\RequestHandler\Listener\JsonResponseListener
+        tags:
+            - { name: kernel.event_listener, event: request_handler.received_response, method: onReceivedResponse }
