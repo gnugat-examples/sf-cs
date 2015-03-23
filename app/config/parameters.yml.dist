@@ -1,4 +1,4 @@
-# This file is a "template" of what your parameters.yml file should look like
+# File: app/config/parameters.yml.dist
 parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
@@ -18,3 +18,7 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    ws_url: http://example.com
+    ws_username: username
+    ws_password: ~
