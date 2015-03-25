@@ -12,7 +12,7 @@ class JsonResponseListener
     {
         $response = $receivedResponse->getResponse();
         $contentType = $response->getHeader('Content-Type');
-        if (false === strpos($response->getHeader('Content-Type'), 'application/json')) {
+        if (false === strpos($contentType[0], 'application/json')) {
             return;
         }
         $body = $response->getBody();

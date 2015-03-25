@@ -18,6 +18,7 @@ class ProfileGateway
         $this->requestHandler = $requestHandler;
         $this->username = $username;
         $this->password = $password;
+        $this->url = $url;
     }
 
     public function create($name)

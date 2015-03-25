@@ -1,3 +1,12 @@
 # File: app/config/services.yml
 imports:
     - { resource: services/request_handler.yml }
+
+services:
+    app.profile_gateway:
+        class: AppBundle\Profile\ProfileGateway
+        arguments:
+            - "@app.request_handler"
+            - "%ws_url%"
+            - "%ws_username%"
+            - "%ws_password%"
